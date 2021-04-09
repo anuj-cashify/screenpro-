@@ -1,0 +1,3107 @@
+{
+	"info": {
+		"_postman_id": "cfe3c2cc-7e52-41ac-a479-ebbdbc06bab3",
+		"name": "Anuj_sanity_prod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Token Grant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"if(pm.response.to.have.status(200)){\r",
+							"var response= JSON.parse(responseBody);\r",
+							"pm.globals.set(\"access_token\",response.access_token);\r",
+							"\r",
+							"};\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "content-length",
+						"value": "0"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/apple/iphone-6"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga=GA1.1.568697896.1609918124; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTM1NzQ4LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.Amk41zytuy6NFirvnc0_7KTBOquRJzKypIs6SmBb0to; _ga_PK3S363B17=GS1.1.1609923083.2.1.1609926184.60; sid=2a90fbfa-ffd0-4dfd-9d40-614b6ff5ea22"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/qr6y/v1/oauth/token?grant_type=implicit&client_id=gadget-pro&client_version=v1",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"qr6y",
+						"v1",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "implicit"
+						},
+						{
+							"key": "client_id",
+							"value": "gadget-pro"
+						},
+						{
+							"key": "client_version",
+							"value": "v1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"if(pm.response.to.have.status(200)){\r",
+							"var response= JSON.parse(responseBody);\r",
+							"pm.globals.set(\"gid\",response.gid);\r",
+							"pm.test(\"gid shouldn't be null\", function () {\r",
+							"pm.expect(response.gid).not.to.equal(null);\r",
+							"});\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzMiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk4NDgwMzcsInZ0IjowfQ.z3EgF2akx3fGqz-4KcDeBLQ8D2Mdq9W78CBRBy7gAq4"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded;charset=UTF-8"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashify"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "sid=e7b5e990-0246-433a-884c-c9db5f3830b0; cashifyreferral=noref-organic; _gid=GA1.2.1071697838.1609834483; _hjTLDTest=1; _hjid=f58fab3d-c607-4258-9d9c-55b87356ab9e; CookieConsent={stamp:%27SbsjfnXvqG5zUiNDaKdnf0aflotaiMd/tlbyEJY54V6JAwfcKRXJXg==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609834486515%2Cregion:%27in%27}; _fbp=fb.1.1609834490556.1238751090; _user_auth_=; _uetsid=108e44104f2e11ebb1f32fd0df446dba; _uetvid=108e6e904f2e11eb988bd33575a56fe6; _ga=GA1.1.523914309.1609834483; _ga_PK3S363B17=GS1.1.1609840408.2.1.1609845702.60"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "did=cashify-BQHMWPC-ZC00NWE1LTLIMGUTNJUYM2Y2MTRHNMM1"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/qr6y/v1/gid",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"qr6y",
+						"v1",
+						"gid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "otp send",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"if(pm.response.to.have.status(200)){\r",
+							"var response= JSON.parse(responseBody);\r",
+							"pm.globals.set(\"rid\",response.rid);\r",
+							"\r",
+							"};\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded;charset=UTF-8"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "sid=e7b5e990-0246-433a-884c-c9db5f3830b0; cashifyreferral=noref-organic; _gid=GA1.2.1071697838.1609834483; _hjTLDTest=1; _hjid=f58fab3d-c607-4258-9d9c-55b87356ab9e; CookieConsent={stamp:%27SbsjfnXvqG5zUiNDaKdnf0aflotaiMd/tlbyEJY54V6JAwfcKRXJXg==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609834486515%2Cregion:%27in%27}; _fbp=fb.1.1609834490556.1238751090; _user_auth_=; _uetsid=108e44104f2e11ebb1f32fd0df446dba; _uetvid=108e6e904f2e11eb988bd33575a56fe6; _ga=GA1.1.523914309.1609834483; _ga_PK3S363B17=GS1.1.1609840408.2.1.1609845702.60"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "mn=9810836517&sern=customer&serv=v1&nt=sms&gid={{gid}}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/qr6y/v1/auth/otp/send",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"qr6y",
+						"v1",
+						"auth",
+						"otp",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "authenticate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var today = new Date();\r",
+							"\r",
+							"var year = today.getFullYear().toString().substr(-2);\r",
+							"\r",
+							"var month = today.getMonth() + 1;\r",
+							"if(month < 10) {\r",
+							"month = '0'+month;\r",
+							"}\r",
+							"\r",
+							"var date = today.getDate();\r",
+							"if(date < 10) {\r",
+							"date = '0'+date;\r",
+							"}\r",
+							"\r",
+							"var otp = year+month+date;\r",
+							"pm.environment.set(\"otp\",otp);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"if(pm.response.to.have.status(200)){\r",
+							"var response= JSON.parse(responseBody);\r",
+							"pm.globals.set(\"access_token\",response.access_token);\r",
+							"\r",
+							"};\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "authorization",
+						"value": "false"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded;charset=UTF-8"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "sid=e7b5e990-0246-433a-884c-c9db5f3830b0; cashifyreferral=noref-organic; _gid=GA1.2.1071697838.1609834483; _hjTLDTest=1; _hjid=f58fab3d-c607-4258-9d9c-55b87356ab9e; CookieConsent={stamp:%27SbsjfnXvqG5zUiNDaKdnf0aflotaiMd/tlbyEJY54V6JAwfcKRXJXg==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609834486515%2Cregion:%27in%27}; _fbp=fb.1.1609834490556.1238751090; _user_auth_=; _uetsid=108e44104f2e11ebb1f32fd0df446dba; _uetvid=108e6e904f2e11eb988bd33575a56fe6; _ga=GA1.1.523914309.1609834483; _ga_PK3S363B17=GS1.1.1609840408.2.1.1609845709.53"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "mn=9810836517&sern=customer&serv=v1&rid={{rid}}&otp={{otp}}&deviceId=cashify-BQHMWPC-ZC00NWE1LTLIMGUTNJUYM2Y2MTRHNMM1"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/qr6y/v1/auth/otp/authenticate",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"qr6y",
+						"v1",
+						"auth",
+						"otp",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login-user-data",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-APP-VERSION",
+						"value": "1.0.35"
+					},
+					{
+						"key": "X-APP-OS",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/"
+					},
+					{
+						"key": "X-APP-REFERRAL",
+						"value": "noref-organic"
+					},
+					{
+						"key": "X-APP-INSTALLER",
+						"value": "cashify"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "X-USER-AUTH",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/cu01/v1/account-settings/login-user-data",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"cu01",
+						"v1",
+						"account-settings",
+						"login-user-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update device",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzMiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk4NDgwMzcsInZ0IjowfQ.z3EgF2akx3fGqz-4KcDeBLQ8D2Mdq9W78CBRBy7gAq4"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashify"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "sid=e7b5e990-0246-433a-884c-c9db5f3830b0; cashifyreferral=noref-organic; _gid=GA1.2.1071697838.1609834483; _hjTLDTest=1; _hjid=f58fab3d-c607-4258-9d9c-55b87356ab9e; CookieConsent={stamp:%27SbsjfnXvqG5zUiNDaKdnf0aflotaiMd/tlbyEJY54V6JAwfcKRXJXg==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609834486515%2Cregion:%27in%27}; _fbp=fb.1.1609834490556.1238751090; _uetsid=108e44104f2e11ebb1f32fd0df446dba; _uetvid=108e6e904f2e11eb988bd33575a56fe6; _ga=GA1.1.523914309.1609834483; _ga_PK3S363B17=GS1.1.1609840408.2.1.1609845727.35; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MiIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMDU1MzI1LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.XTrMrxaEhI4vNumPxTexDU35-X_gvGQbOsdCxvlKGII"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"did\":\"cashify-BQHMWPC-ZC00NWE1LTLIMGUTNJUYM2Y2MTRHNMM1\"}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/cu01/v1/update/device",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"cu01",
+						"v1",
+						"update",
+						"device"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token Grant",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"\r",
+							"if(pm.response.to.have.status(200)){\r",
+							"var response= JSON.parse(responseBody);\r",
+							"pm.globals.set(\"access_token\",response.access_token);\r",
+							"\r",
+							"};\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "content-length",
+						"value": "0"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/apple/iphone-6"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga=GA1.1.568697896.1609918124; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTM1NzQ4LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.Amk41zytuy6NFirvnc0_7KTBOquRJzKypIs6SmBb0to; _ga_PK3S363B17=GS1.1.1609923083.2.1.1609926184.60; sid=2a90fbfa-ffd0-4dfd-9d40-614b6ff5ea22"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/qr6y/v1/oauth/token?grant_type=implicit&client_id=gadget-pro&client_version=v1",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"qr6y",
+						"v1",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "implicit"
+						},
+						{
+							"key": "client_id",
+							"value": "gadget-pro"
+						},
+						{
+							"key": "client_version",
+							"value": "v1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Brands",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "X-USER-AUTH",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/pd01/v1/brands?plid=20&serid=1&souid=2&pin=122001",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"pd01",
+						"v1",
+						"brands"
+					],
+					"query": [
+						{
+							"key": "plid",
+							"value": "20"
+						},
+						{
+							"key": "serid",
+							"value": "1"
+						},
+						{
+							"key": "souid",
+							"value": "2"
+						},
+						{
+							"key": "pin",
+							"value": "122001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Services Provided",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-APP-INSTALLER",
+						"value": "cashify"
+					},
+					{
+						"key": "X-APP-VERSION",
+						"value": "1.0.35"
+					},
+					{
+						"key": "X-APP-OS",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair"
+					},
+					{
+						"key": "X-APP-REFERRAL",
+						"value": "noref-organic"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzMiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk4NDkzMzYsInZ0IjowfQ.TCXMtbce-YPiQsXXyTZh4w-Cn_YhjI-aVCTxdJv1SvA"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v3/services-provided?pc=122001",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v3",
+						"services-provided"
+					],
+					"query": [
+						{
+							"key": "pc",
+							"value": "122001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product search",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzMiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk4NDkzMzYsInZ0IjowfQ.TCXMtbce-YPiQsXXyTZh4w-Cn_YhjI-aVCTxdJv1SvA"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "cashifyreferral=noref-organic; _gid=GA1.2.1071697838.1609834483; _hjid=f58fab3d-c607-4258-9d9c-55b87356ab9e; _hjTLDTest=1; CookieConsent={stamp:%27SbsjfnXvqG5zUiNDaKdnf0aflotaiMd/tlbyEJY54V6JAwfcKRXJXg==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609834486515%2Cregion:%27in%27}; _fbp=fb.1.1609834490556.1238751090; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MiIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMDU1MzI1LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.XTrMrxaEhI4vNumPxTexDU35-X_gvGQbOsdCxvlKGII; sid=5f119f15-28d8-4597-b981-3ea0624c4ba9; _uetsid=108e44104f2e11ebb1f32fd0df446dba; _uetvid=108e6e904f2e11eb988bd33575a56fe6; _gat_UA-71164687-3=1; _gat_UA-71164687-18=1; _ga=GA1.1.523914309.1609834483; _ga_PK3S363B17=GS1.1.1609840408.2.1.1609845739.23; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"bid\":null,\"os\":0,\"pin\":122001,\"plid\":20,\"ps\":10,\"regid\":249,\"serid\":1,\"souid\":1}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/pd01/v1/product-search-template?key=top_products",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"pd01",
+						"v1",
+						"product-search-template"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "top_products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product search Template",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzIiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk4NTExODEsInZ0IjowfQ.PgvAlkQCY3DrbNXeTncsv5lfPBEmrR8pwuWpOOFKZAs"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/apple"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "cashifyreferral=noref-organic; _gid=GA1.2.1071697838.1609834483; _hjid=f58fab3d-c607-4258-9d9c-55b87356ab9e; _hjTLDTest=1; CookieConsent={stamp:%27SbsjfnXvqG5zUiNDaKdnf0aflotaiMd/tlbyEJY54V6JAwfcKRXJXg==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609834486515%2Cregion:%27in%27}; _fbp=fb.1.1609834490556.1238751090; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMDU2MzYxLCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.22tJAkatFOS38emJ0lcjT77sYhiOrWsidSSFrM9H8SQ; _uetsid=108e44104f2e11ebb1f32fd0df446dba; _uetvid=108e6e904f2e11eb988bd33575a56fe6; _ga_PK3S363B17=GS1.1.1609840408.2.1.1609847581.60; _ga=GA1.1.523914309.1609834483; sid=c4f2ceab-b51a-4276-b657-f08c55e06cc2"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"bid\":21,\"os\":0,\"pin\":122001,\"plid\":20,\"ps\":24,\"regid\":249,\"serid\":1,\"souid\":2}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/pd01/v1/product-search-template?key=top_products",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"pd01",
+						"v1",
+						"product-search-template"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "top_products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token Grant",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "content-length",
+						"value": "0"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/apple/apple-iphone-8-plus"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _gat_UA-71164687-3=1; _gat_UA-71164687-5=1; _gat_UA-71164687-18=1; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609935048.58; _ga=GA1.1.568697896.1609918124; sid=110db4ad-4926-4c84-89b4-f07ead1fb717"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/qr6y/v1/oauth/token?grant_type=implicit&client_id=gadget-pro&client_version=v1",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"qr6y",
+						"v1",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "implicit"
+						},
+						{
+							"key": "client_id",
+							"value": "gadget-pro"
+						},
+						{
+							"key": "client_version",
+							"value": "v1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login user data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-APP-VERSION",
+						"value": "1.0.35"
+					},
+					{
+						"key": "X-APP-OS",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzg2NDgsInZ0IjowfQ.ybGEvsG6SIJ7LK4nLvGWrTf7pc0pEaGJsoX6OESZThw"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair/apple/apple-iphone-8-plus"
+					},
+					{
+						"key": "X-APP-REFERRAL",
+						"value": "noref-organic"
+					},
+					{
+						"key": "X-APP-INSTALLER",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "X-USER-AUTH",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/cu01/v1/account-settings/login-user-data",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"cu01",
+						"v1",
+						"account-settings",
+						"login-user-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Region",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMxNDYiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MTE5Mjk5MTAsInZ0IjowfQ.OmF2IGSY5G2PKC80CJ8HZbsJPmn0jDtSQfzSYUljw44"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/pd01/v1/regions?serid=1&souid=2&xmd=3&rcy=0&os=0&ps=2000",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"pd01",
+						"v1",
+						"regions"
+					],
+					"query": [
+						{
+							"key": "serid",
+							"value": "1"
+						},
+						{
+							"key": "souid",
+							"value": "2"
+						},
+						{
+							"key": "xmd",
+							"value": "3"
+						},
+						{
+							"key": "rcy",
+							"value": "0"
+						},
+						{
+							"key": "os",
+							"value": "0"
+						},
+						{
+							"key": "ps",
+							"value": "2000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "service Provided",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-APP-INSTALLER",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "X-APP-VERSION",
+						"value": "1.0.35"
+					},
+					{
+						"key": "X-APP-OS",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair/apple/apple-iphone-8-plus"
+					},
+					{
+						"key": "X-APP-REFERRAL",
+						"value": "noref-organic"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzg2NDgsInZ0IjowfQ.ybGEvsG6SIJ7LK4nLvGWrTf7pc0pEaGJsoX6OESZThw"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v3/services-provided?pc=122001",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v3",
+						"services-provided"
+					],
+					"query": [
+						{
+							"key": "pc",
+							"value": "122001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product search ",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzg2NDgsInZ0IjowfQ.ybGEvsG6SIJ7LK4nLvGWrTf7pc0pEaGJsoX6OESZThw"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/apple/apple-iphone-8-plus"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _gat_UA-71164687-3=1; _gat_UA-71164687-5=1; _gat_UA-71164687-18=1; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609935048.58; _ga=GA1.1.568697896.1609918124; sid=110db4ad-4926-4c84-89b4-f07ead1fb717"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"bid\":21,\"os\":0,\"pid\":17224,\"pin\":122001,\"plid\":20,\"ps\":10,\"regid\":249,\"serid\":1,\"souid\":2}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/pd01/v1/product-search-template?key=sp_parent_product",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"pd01",
+						"v1",
+						"product-search-template"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "sp_parent_product"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Brands",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair/apple/apple-iphone-8-plus"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzUiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzg2NDgsInZ0IjowfQ.8azuKiyq74yDzkJoV0pQ5f7d7SoK5VihY-LljCIXEWs"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/pd01/v1/brands?plid=20&serid=1&souid=2&pin=122001",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"pd01",
+						"v1",
+						"brands"
+					],
+					"query": [
+						{
+							"key": "plid",
+							"value": "20"
+						},
+						{
+							"key": "serid",
+							"value": "1"
+						},
+						{
+							"key": "souid",
+							"value": "2"
+						},
+						{
+							"key": "pin",
+							"value": "122001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product Color",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzUiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzg2NDgsInZ0IjowfQ.8azuKiyq74yDzkJoV0pQ5f7d7SoK5VihY-LljCIXEWs"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/apple/apple-iphone-8-plus"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _gat_UA-71164687-3=1; _gat_UA-71164687-5=1; _gat_UA-71164687-18=1; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609935048.58; _ga=GA1.1.568697896.1609918124; sid=110db4ad-4926-4c84-89b4-f07ead1fb717"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"bid\":21,\"os\":0,\"pin\":122001,\"plid\":20,\"ps\":10,\"regid\":249,\"serid\":1,\"souid\":2}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/pd01/v1/product-search-template?key=top_products",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"pd01",
+						"v1",
+						"product-search-template"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "top_products"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "content-length",
+						"value": "0"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "content-type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/quote?bid=21&bn=Apple&pid=17224%20%20%20%20%20%20%20%20&pn=Apple%20iPhone%208%20Plus&pcid=1037&pcn=Red&cdn=https://s3n.cashify.in/cashify/product&in=csh-jcko8mvm-sf7x.png%20%20%20%20%20%20%20%20&spid=undefined"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609936035.60; _ga=GA1.1.568697896.1609918124; sid=3f5f20b4-4f9d-49df-9566-bd5b413e44a1"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/qr6y/v1/oauth/token?grant_type=implicit&client_id=gadget-pro&client_version=v1",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"qr6y",
+						"v1",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "grant_type",
+							"value": "implicit"
+						},
+						{
+							"key": "client_id",
+							"value": "gadget-pro"
+						},
+						{
+							"key": "client_version",
+							"value": "v1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOgin User data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-APP-VERSION",
+						"value": "1.0.35"
+					},
+					{
+						"key": "X-APP-OS",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair/user/order/quote?bid=21&bn=Apple&pid=17224%20%20%20%20%20%20%20%20&pn=Apple%20iPhone%208%20Plus&pcid=1037&pcn=Red&cdn=https://s3n.cashify.in/cashify/product&in=csh-jcko8mvm-sf7x.png%20%20%20%20%20%20%20%20&spid=undefined"
+					},
+					{
+						"key": "X-APP-REFERRAL",
+						"value": "noref-organic"
+					},
+					{
+						"key": "X-APP-INSTALLER",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "X-USER-AUTH",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/cu01/v1/account-settings/login-user-data",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"cu01",
+						"v1",
+						"account-settings",
+						"login-user-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "services-available",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzMiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk4NTE3NjEsInZ0IjowfQ.S28ieOIH_w9h7tfa8q1r-ZHD3V7G6PFQrWb890BtqFM"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMDU2MzYxLCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.22tJAkatFOS38emJ0lcjT77sYhiOrWsidSSFrM9H8SQ"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/quote?bid=21&bn=Apple&pid=16635%20%20%20%20%20%20%20%20&pn=Apple%20iPhone%206&pcid=1360&pcn=Space%20Grey&cdn=https://s3n.cashify.in/cashify/product&in=csh-qp4ba4sq-aeny.png%20%20%20%20%20%20%20%20&spid=undefined"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "cashifyreferral=noref-organic; _gid=GA1.2.1071697838.1609834483; _hjid=f58fab3d-c607-4258-9d9c-55b87356ab9e; _hjTLDTest=1; CookieConsent={stamp:%27SbsjfnXvqG5zUiNDaKdnf0aflotaiMd/tlbyEJY54V6JAwfcKRXJXg==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609834486515%2Cregion:%27in%27}; _fbp=fb.1.1609834490556.1238751090; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMDU2MzYxLCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.22tJAkatFOS38emJ0lcjT77sYhiOrWsidSSFrM9H8SQ; _uetsid=108e44104f2e11ebb1f32fd0df446dba; _uetvid=108e6e904f2e11eb988bd33575a56fe6; _ga_PK3S363B17=GS1.1.1609840408.2.1.1609848161.60; _ga=GA1.1.523914309.1609834483; sid=4d658dd3-1864-4b2a-906b-3441e0773887"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"bid\":21,\"pcid\":1360,\"pid\":16635,\"pin\":122001,\"ri\":249}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v3/services-available",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v3",
+						"services-available"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "quote create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzIiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk4NTE3NjEsInZ0IjowfQ.5VZAmOiFGj08Ezlm_k7_KKAlBLb710ekMe0lRwvvxMQ"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMDU2MzYxLCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.22tJAkatFOS38emJ0lcjT77sYhiOrWsidSSFrM9H8SQ"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/quote?bid=21&bn=Apple&pid=16635%20%20%20%20%20%20%20%20&pn=Apple%20iPhone%206&pcid=1360&pcn=Space%20Grey&cdn=https://s3n.cashify.in/cashify/product&in=csh-qp4ba4sq-aeny.png%20%20%20%20%20%20%20%20&spid=undefined"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "cashifyreferral=noref-organic; _gid=GA1.2.1071697838.1609834483; _hjid=f58fab3d-c607-4258-9d9c-55b87356ab9e; _hjTLDTest=1; CookieConsent={stamp:%27SbsjfnXvqG5zUiNDaKdnf0aflotaiMd/tlbyEJY54V6JAwfcKRXJXg==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609834486515%2Cregion:%27in%27}; _fbp=fb.1.1609834490556.1238751090; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMDU2MzYxLCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.22tJAkatFOS38emJ0lcjT77sYhiOrWsidSSFrM9H8SQ; sid=4d658dd3-1864-4b2a-906b-3441e0773887; _uetsid=108e44104f2e11ebb1f32fd0df446dba; _uetvid=108e6e904f2e11eb988bd33575a56fe6; _ga_PK3S363B17=GS1.1.1609840408.2.1.1609848274.60; _ga=GA1.1.523914309.1609834483"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"bid\":21,\"bn\":\"Apple\",\"di\":\"cashify-BQHMWPC-ZC00NWE1LTLIMGUTNJUYM2Y2MTRHNMM1\",\"em\":\"anuj.anujgupta001@gmail.com\",\"pc\":\"Space Grey\",\"pcid\":1360,\"pid\":16635,\"pin\":122001,\"pn\":\"Apple iPhone 6\",\"rf\":\"noref-organic\",\"ri\":249,\"rn\":\"Gurgaon\",\"serid\":1,\"souid\":2,\"spid\":3}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v4/quote/create",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v4",
+						"quote",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Address",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-APP-VERSION",
+						"value": "1.0.35"
+					},
+					{
+						"key": "X-APP-OS",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzIiLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk4NTE3NjEsInZ0IjowfQ.5VZAmOiFGj08Ezlm_k7_KKAlBLb710ekMe0lRwvvxMQ"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair/user/order/address?qid=d0tlRXlHcVhncVgweXRpNTZRQUxTZz09"
+					},
+					{
+						"key": "X-APP-REFERRAL",
+						"value": "noref-organic"
+					},
+					{
+						"key": "X-APP-INSTALLER",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "X-USER-AUTH",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3MyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMDU2MzYxLCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.22tJAkatFOS38emJ0lcjT77sYhiOrWsidSSFrM9H8SQ"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/cu01/v1/address/list?serid=1&souid=2",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"cu01",
+						"v1",
+						"address",
+						"list"
+					],
+					"query": [
+						{
+							"key": "serid",
+							"value": "1"
+						},
+						{
+							"key": "souid",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updated-price",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/address?qid=THVyZ0VmT01uWTh1TU8zcU1HUkI5QT09"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; sid=3f5f20b4-4f9d-49df-9566-bd5b413e44a1; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga=GA1.1.568697896.1609918124; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609936263.60"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qid\":\"2874585\",\"pin\":122002}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v4/check-updated-price",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v4",
+						"check-updated-price"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-pincode",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/address?qid=THVyZ0VmT01uWTh1TU8zcU1HUkI5QT09"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; sid=3f5f20b4-4f9d-49df-9566-bd5b413e44a1; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga=GA1.1.568697896.1609918124; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609936263.60"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qid\":\"2874585\",\"pin\":122002}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v4/update-pincode",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v4",
+						"update-pincode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "service/status",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/address?qid=THVyZ0VmT01uWTh1TU8zcU1HUkI5QT09"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; sid=3f5f20b4-4f9d-49df-9566-bd5b413e44a1; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga=GA1.1.568697896.1609918124; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609936263.60"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"pid\":17224,\"pin\":[122002],\"plid\":20,\"qi\":\"2874585\",\"ri\":249,\"serId\":1,\"souId\":2,\"vid\":47}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v3/service/status",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v3",
+						"service",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-APP-VERSION",
+						"value": "1.0.35"
+					},
+					{
+						"key": "X-APP-OS",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair/user/order/address?qid=THVyZ0VmT01uWTh1TU8zcU1HUkI5QT09"
+					},
+					{
+						"key": "X-APP-REFERRAL",
+						"value": "noref-organic"
+					},
+					{
+						"key": "X-APP-INSTALLER",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "X-USER-AUTH",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v3/store?rid=1&bid=21&plid=20&souid=2&serid=1",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v3",
+						"store"
+					],
+					"query": [
+						{
+							"key": "rid",
+							"value": "1"
+						},
+						{
+							"key": "bid",
+							"value": "21"
+						},
+						{
+							"key": "plid",
+							"value": "20"
+						},
+						{
+							"key": "souid",
+							"value": "2"
+						},
+						{
+							"key": "serid",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-store-drop",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/pickup-option?aid=2419889&apin=122002&qid=THVyZ0VmT01uWTh1TU8zcU1HUkI5QT09"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; sid=3f5f20b4-4f9d-49df-9566-bd5b413e44a1; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga=GA1.1.568697896.1609918124; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609936375.60"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qid\":\"2874585\",\"id\":false}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v4/update-store-drop",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v4",
+						"update-store-drop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appointment ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-APP-VERSION",
+						"value": "1.0.35"
+					},
+					{
+						"key": "X-APP-OS",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair/user/order/schedule?aid=2419889&apin=122002&qid=THVyZ0VmT01uWTh1TU8zcU1HUkI5QT09&po=2"
+					},
+					{
+						"key": "X-APP-REFERRAL",
+						"value": "noref-organic"
+					},
+					{
+						"key": "X-APP-INSTALLER",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "X-USER-AUTH",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v3/appointments?qid=2874585&qa=4699&pin=122002&sprid=249",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v3",
+						"appointments"
+					],
+					"query": [
+						{
+							"key": "qid",
+							"value": "2874585"
+						},
+						{
+							"key": "qa",
+							"value": "4699"
+						},
+						{
+							"key": "pin",
+							"value": "122002"
+						},
+						{
+							"key": "sprid",
+							"value": "249"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-slot-lock",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/schedule?aid=2419889&apin=122002&qid=THVyZ0VmT01uWTh1TU8zcU1HUkI5QT09&po=2"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; sid=3f5f20b4-4f9d-49df-9566-bd5b413e44a1; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga=GA1.1.568697896.1609918124; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609936514.60"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qid\":\"2874585\",\"il\":\"false\",\"sd\":\"1610044200\"}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v4/update-slot-lock",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v4",
+						"update-slot-lock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/schedule?aid=2419889&apin=122002&qid=THVyZ0VmT01uWTh1TU8zcU1HUkI5QT09&po=2"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; sid=3f5f20b4-4f9d-49df-9566-bd5b413e44a1; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga=GA1.1.568697896.1609918124; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609936514.60"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"aid\":2419889,\"cm\":\"7503624202\",\"cn\":\"Anuj Gupta\",\"did\":1610044200,\"em\":\"anuj.anujgupta001@gmail.com\",\"pin\":122002,\"ppti\":null,\"qid\":\"2874585\",\"rf\":\"noref-organic\",\"serid\":1,\"si\":null,\"sid\":3,\"souid\":2}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v3/order/create",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v3",
+						"order",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancel-res-type",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-APP-VERSION",
+						"value": "1.0.35"
+					},
+					{
+						"key": "X-APP-OS",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "X-AUTHORIZATION",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "Referer",
+						"value": "https://www.cashify.in/repair/user/order/detail?oid=CSPVWCF134889"
+					},
+					{
+						"key": "X-APP-REFERRAL",
+						"value": "noref-organic"
+					},
+					{
+						"key": "X-APP-INSTALLER",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "X-USER-AUTH",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v3/order-cancel-res-type",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v3",
+						"order-cancel-res-type"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order-status-update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authority",
+						"value": "www.cashify.in"
+					},
+					{
+						"key": "pragma",
+						"value": "no-cache"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache"
+					},
+					{
+						"key": "x-app-version",
+						"value": "1.0.35"
+					},
+					{
+						"key": "x-app-os",
+						"value": "CWSITE-3.0"
+					},
+					{
+						"key": "x-authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiY2FzaGlmeSIsImtpZCI6IjMwNzciLCJyb2xlcyI6WyJjYXNoaWZ5Il0sImNsaWQiOiJnYWRnZXQtcHJvIiwiY2x2IjoidjEiLCJleHAiOjE2MDk5Mzk2MzUsInZ0IjowfQ.9Oe86fuesGgRzOOLVC90HR5D0M8D4c7LWH1q3tYPI1s"
+					},
+					{
+						"key": "authorization",
+						"value": "true"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*"
+					},
+					{
+						"key": "x-app-referral",
+						"value": "noref-organic"
+					},
+					{
+						"key": "x-app-installer",
+						"value": "cashifymobile"
+					},
+					{
+						"key": "x-user-auth",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+					},
+					{
+						"key": "origin",
+						"value": "https://www.cashify.in"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "referer",
+						"value": "https://www.cashify.in/repair/user/order/detail?oid=CSPVWCF134889"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "cookie",
+						"value": "_gid=GA1.2.1513697369.1609918124; cashifyreferral=noref-organic; _hjid=541da5cc-6f9e-48f8-9003-1bbae497ce2b; _hjTLDTest=1; CookieConsent={stamp:%27RBHKulVsEl/z1MlibMlY+VuJmycfKMy/sxKt6J3imiR96MACrefwOQ==%27%2Cnecessary:true%2Cpreferences:true%2Cstatistics:true%2Cmarketing:true%2Cver:1%2Cutc:1609918127995%2Cregion:%27in%27}; _city-info_=%7B%22cs%22%3A%5B1%5D%2C%22dp%22%3A122001%2C%22isp%22%3A%221%22%2C%22pt%22%3A%5B%22csh%22%5D%2C%22rcy%22%3A1%2C%22ri%22%3A249%2C%22rin%22%3A%22Gurgaon_be0ae3d8-7.png%22%2C%22rn%22%3A%22Gurgaon%22%2C%22xmd%22%3A1%7D; _fbp=fb.1.1609918130014.1560599190; _user_auth_=eyJhbGciOiJIUzI1NiJ9.eyJtbiI6Ijc1MDM2MjQyMDIiLCJ1aWQiOiIzNjM0NDU5IiwidW5hbWUiOiJBbnVqIEd1cHRhIiwia2lkIjoiMzA3NyIsImNsaWQiOiJjdXN0b21lciIsImNsdiI6InYxIiwiZXhwIjoxNjExMTQ0NjM2LCJjcCI6eyJzb3VyY2UiOm51bGx9LCJndCI6Im90cCIsInZ0IjowfQ.S4qj-2ECFSkXhK_PnRDfL_mydluOxQc3gTaYEwoOXYI; sid=3f5f20b4-4f9d-49df-9566-bd5b413e44a1; _uetsid=ce9e85a04ff011eb96c75d93b1aadd3d; _uetvid=ce9eec104ff011ebbdb6e5af8d52eb7a; _ga_PK3S363B17=GS1.1.1609933452.4.1.1609936608.60; _ga=GA1.1.568697896.1609918124"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"key\":\"csh_sp_failed\",\"rid\":23,\"rm\":\"test\",\"sno\":\"CSPVWCF134889\"}"
+				},
+				"url": {
+					"raw": "https://www.cashify.in/api/sp01/v3/order-status-update",
+					"protocol": "https",
+					"host": [
+						"www",
+						"cashify",
+						"in"
+					],
+					"path": [
+						"api",
+						"sp01",
+						"v3",
+						"order-status-update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
